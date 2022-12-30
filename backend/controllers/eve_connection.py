@@ -1,35 +1,31 @@
-from esipy import EsiApp, EsiClient
-import time
+import requests
 
-start = time.time()
+#Gets orders in region_id. 
+#order_type can be 'all', 'buy', or 'sell', and it is optional
+#page is optional and should be an integer, and is only if you want to access next page of orders(if 1000 on current page)
+#type_id is optional, and can specify an item type id
 
-esi_app = EsiApp()
-app = esi_app.get_latest_swagger
+#https://esi.evetech.net/ui/#/Market/get_markets_region_id_orders
+def get_orders(region_id, order_type="all", page=1, type_id=None):
+    param_string=f"order_type={order_type}&page={page}"
+    if type_id:
+        param_string += f"&type_id={type_id}"
+    return requests.get(f"https://esi.evetech.net/latest/markets/{region_id}/orders?{param_string}").json()
 
-# basic client, for public endpoints only
-client = EsiClient(
-    retry_requests=True,  # set to retry on http 5xx error (default False)
-    headers={'User-Agent': 'Something CCP can use to contact you and that define your app'},
-    raw_body_only=False,  # default False, set to True to never parse response and only return raw JSON string content.
-)
+def id_to_name(id):
+    return requests.post("https://esi.evetech.net/latest/universe/names/", json=[id]).json()
 
-# generate the operation tuple
-# the parameters given are the actual parameters the endpoint requires
-market_order_operation = app.op['get_markets_region_id_orders'](
-    region_id=10000002,
-    type_id=11188,
-    order_type='all',
-)
+def ids_to_names(ids):
+    return requests.post("https://esi.evetech.net/latest/universe/names/", json=ids).json()
 
-# do the request
-response = client.request(market_order_operation)
+#https://esi.evetech.net/ui/#/Market/get_markets_region_id_history
+def get_history(region_id, type_id): 
+    return requests.get(f"https://esi.evetech.net/latest/markets/{region_id}/history?type_id={type_id}").json()
 
-# use it: response.data contains the parsed result of the request.
-print(response.data[0].price)
+regions = [10000002, 10000032, 10000043, 10000042, 10000030]
 
-end = time.time()
-print(f'\nTotal time: {end-start}')
-res = ((end-start)*118)/60
-print(f'\nTotal time for all items approx: {res}')
-# to get the headers objects, you can get the header attribute
-# print(response.header)
+for places in regions:
+    region_items = get_orders(places, type_id=29248)
+    for item in region_items:
+        print(item)
+    print('\n\n')
