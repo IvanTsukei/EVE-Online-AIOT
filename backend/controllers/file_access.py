@@ -26,7 +26,8 @@ def buy_quantity():
     quantity_config_fpath = file_path('itemIDs.xlsx')
     df_buy_quantity = pd.read_excel(quantity_config_fpath)
     quantity_list = dict(zip(df_buy_quantity['ID'], df_buy_quantity['Quantity']))
-    return quantity_list
+    id_name = dict(zip(df_buy_quantity['ID'], df_buy_quantity['Name']))
+    return [quantity_list, id_name]
 
 def config_reader():
     """

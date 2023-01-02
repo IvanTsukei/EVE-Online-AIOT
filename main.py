@@ -1,8 +1,8 @@
-from backend.controllers.market_generator import buy_orders
+from backend.controllers.market_generator import sell_orders
 
 
 def main():
-    buy_orders()
+    sell_orders()
 
 if __name__ == "__main__":
     main()
