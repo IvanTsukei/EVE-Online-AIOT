@@ -29,16 +29,3 @@ def get_wallet(id):
 
 def get_wallet_history(id): 
     return requests.get(f"/characters/{id}/wallet/transactions/").json()
-
-regions = [10000002, 10000032, 10000043, 10000042, 10000030]
-
-for places in regions:
-    region_items = get_orders(places, type_id=29248)
-
-    region_items = [x for x in region_items if x['is_buy_order'] == False and x['volume_remain'] >= 200]
-    print(places)
-    try:
-        print(min(region_items, key=lambda x:x['price']))
-    except:
-        print('NA')
-    print('\n\n')
