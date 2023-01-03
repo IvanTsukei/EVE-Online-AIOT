@@ -1,5 +1,4 @@
 from pathlib import Path
-import os.path
 import configparser
 import json
 import pandas as pd
@@ -21,13 +20,33 @@ def all_files():
 def buy_quantity():
     """
     Reads in the min. quanity a region buyer is will to purchase of a specific item.
-    Returns a dict. of key: ID and value: Quantity
+    Returns a list of dict. of key: ID and value: Quantity | key: ID and value: Name
     """
     quantity_config_fpath = file_path('itemIDs.xlsx')
     df_buy_quantity = pd.read_excel(quantity_config_fpath)
     quantity_list = dict(zip(df_buy_quantity['ID'], df_buy_quantity['Quantity']))
     id_name = dict(zip(df_buy_quantity['ID'], df_buy_quantity['Name']))
     return [quantity_list, id_name]
+
+def region_ids():
+    """
+    Reads in the IDs and Names of all regions in Eve Online.
+    Returns a dict. of key: ID and value: Name
+    """
+    quantity_config_fpath = file_path('game_data/region_ids.xlsx')
+    df_buy_quantity = pd.read_excel(quantity_config_fpath)
+    id_name = dict(zip(df_buy_quantity['ID'], df_buy_quantity['Name']))
+    return id_name
+
+def station_ids():
+    """
+    Reads in the IDs and Names of all npc stations in Eve Online.
+    Returns a dict. of key: ID and value: Name
+    """
+    quantity_config_fpath = file_path('game_data/npc_station_ids.xlsx')
+    df_buy_quantity = pd.read_excel(quantity_config_fpath)
+    id_name = dict(zip(df_buy_quantity['ID'], df_buy_quantity['Name']))
+    return id_name
 
 def config_reader():
     """
@@ -43,5 +62,3 @@ def config_reader():
     market_regions = json.loads(config.get('markets', 'regions'))
 
     return market_regions
-
-buy_quantity()
