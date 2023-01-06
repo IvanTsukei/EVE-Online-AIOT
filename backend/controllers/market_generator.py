@@ -1,22 +1,20 @@
 import pandas as pd
 from backend.controllers.eve_connection import get_orders
-from backend.controllers.file_access import config_reader, buy_quantity, region_ids, station_ids, file_path
-import time
+from backend.controllers.file_access import config_reader, config_reader_json, sell_quantity, region_ids, station_ids, file_path
 
 def sell_orders():
     """
     Gets a list of all the active sell orders in a designated region.
     Returns an excel spreadsheet.
     """
-    #start = time.time()
-    ## Setting up Variables ##
-    regions = config_reader()
-    floor_quantity = buy_quantity()[0]
-    item_id_to_name = buy_quantity()[1]
-    region_id_to_name = region_ids()
-    station_id_to_name = station_ids()
 
-    df = pd.DataFrame(columns=['Item', 'Region', 'Station', 'Price', 'Quantity'])
+    ## Setting up Variables ##
+    regions = config_reader_json('markets', 'regions')
+    floor_quantity, item_id_to_name = sell_quantity()[0], sell_quantity()[1]
+    region_id_to_name, station_id_to_name = region_ids(), station_ids()
+    output_name = str(config_reader('data','output_name'))
+
+    df = pd.DataFrame()
     
     ## Looping through items and regions ##
     for id, quanity in floor_quantity.items():
@@ -37,10 +35,5 @@ def sell_orders():
 
         df = pd.concat([df, df_temp], axis = 0)
 
-    
     ## Final Output ##
-    df.to_excel(file_path('outputs/Market_Sell_Data.xlsx'), index=False)
-
-    #end = time.time()
-    #res_time = time.strftime("%H:%M:%S", time.gmtime(end-start))
-    #print(f'Runtime: {res_time}')
+    df.to_excel(file_path(f'outputs/{output_name}.xlsx'), index=False)
