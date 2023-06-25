@@ -12,7 +12,9 @@
   <p align="center">
     Python based program for EVE Online.
     <br />
-    Created for [Certh Finley](https://zkillboard.com/character/94817305/)
+
+  Created for [Certh Finley](https://evewho.com/character/94817305)
+  
     <br />
   </p>
 </div>
@@ -44,7 +46,7 @@
 
 <div align="center">
   <a href="https://github.com/IvanTsukei/EVE-Online-AIOT">
-    <img src="frontend/images/Example_1.png" alt="Example" width="1292" height="905">
+    <img src="frontend/images/Example_1.png" alt="Example" width="1175" height="643">
   </a>
 </div>
 <br />
@@ -66,6 +68,7 @@ Please ensure each of the following are installed otherwise the program will not
 * [NumPy](https://numpy.org/)
 * [openpyxl](https://openpyxl.readthedocs.io/en/stable/)
 * [configparser](https://pypi.org/project/yfinance/)
+* [xlsxwriter](https://xlsxwriter.readthedocs.io/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -78,7 +81,7 @@ Once all of the above libraries are installed, simply run the program from:
   ```sh
   main.py
   ```
-from the main directory. The program will take between 2-5 minutes to run. 
+from the main directory. The program will take between 2-5 minutes to run. You can change certain parameters within the config.ini file found within the data folder.
 
 
 <!-- CONTRIBUTING -->

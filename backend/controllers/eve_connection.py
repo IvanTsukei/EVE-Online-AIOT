@@ -25,10 +25,13 @@ def get_history(region_id, type_id):
     return requests.get(f"https://esi.evetech.net/latest/markets/{region_id}/history?type_id={type_id}").json()
 
 def get_wallet(id):
-    return requests.get(f"/characters/{id}/wallet/").json()
+    return requests.get(f"https://esi.evetech.net/latest/characters/{id}/wallet/").json()
 
 def get_wallet_history(id):
-    return requests.get(f"/characters/{id}/wallet/transactions/").json()
+    return requests.get(f"https://esi.evetech.net/latest/characters/{id}/wallet/transactions/").json()
 
 def get_char_location(id):
-    return requests.get(f"/characters/{id}/location/").json()
+    return requests.get(f"https://esi.evetech.net/latest/characters/{id}/location/").json()
+
+def get_char_info(id):
+    return requests.get(f"https://esi.evetech.net/latest/characters/{id}/").json()

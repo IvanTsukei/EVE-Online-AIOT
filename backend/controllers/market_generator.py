@@ -12,17 +12,16 @@ def sell_orders():
     regions = config_reader_json('markets', 'regions')
     floor_quantity, item_id_to_name = sell_quantity()[0], sell_quantity()[1]
     region_id_to_name, station_id_to_name = region_ids(), station_ids()
-    output_name = str(config_reader('data','output_name'))
 
     df = pd.DataFrame()
     
     ## Looping through items and regions ##
-    for id, quanity in floor_quantity.items():
+    for id, quantity in floor_quantity.items():
         df_temp = pd.DataFrame(columns=['Item', 'Region', 'Station', 'Price', 'Quantity'])
 
         for places in regions:
             region_items = get_orders(places, type_id=id)
-            region_items = [x for x in region_items if x['is_buy_order'] == False and x['volume_remain'] >= quanity]
+            region_items = [x for x in region_items if x['is_buy_order'] == False and x['volume_remain'] >= quantity]
 
             try:
                 temp_dict = min(region_items, key=lambda x:x['price'])
@@ -35,5 +34,5 @@ def sell_orders():
 
         df = pd.concat([df, df_temp], axis = 0)
 
-    ## Final Output ##
-    df.to_excel(file_path(f'outputs/{output_name}.xlsx'), index=False)
+    return df
+    ##df.to_excel(file_path(f'outputs/{output_name}.xlsx'), index=False)

@@ -1,7 +1,7 @@
-from backend.controllers.market_generator import sell_orders
+from backend.controllers.output_handler import run_program
 
 def main():
-    sell_orders()
+    run_program()
 
 if __name__ == "__main__":
     main()
