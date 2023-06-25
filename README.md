@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/IvanTsukei/EVE-Online-AIOT">
-    <img src="frontend/images/EveAIOTIcon.png" alt="Logo" width="256" height="102">
+    <img src="frontend/images/EveAIOTIcon.png" alt="Logo" width="744" height="152">
   </a>
 
   <h3 align="center">EVE Online All In One Tool</h3>
@@ -14,8 +14,7 @@
     <br />
 
   Created for [Certh Finley](https://evewho.com/character/94817305)
-  
-    <br />
+
   </p>
 </div>
 

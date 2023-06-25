@@ -1,6 +1,6 @@
 import pandas as pd
 from backend.controllers.eve_connection import get_orders
-from backend.controllers.file_access import config_reader, config_reader_json, sell_quantity, region_ids, station_ids, file_path
+from backend.controllers.file_access import config_reader, config_reader_json, sell_quantity, region_ids, station_ids
 
 def sell_orders():
     """
