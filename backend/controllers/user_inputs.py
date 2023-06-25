@@ -1,4 +1,7 @@
-from tkinter import NUMERIC
+'''
+Currently not used. I think I just brought this in from another project just incase I needed it?
+I'll keep it for now...
+'''
 from unicodedata import numeric
 import pandas as pd
 from backend.controllers.file_access import file_path, all_files

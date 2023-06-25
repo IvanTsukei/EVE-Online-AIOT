@@ -21,11 +21,14 @@ def id_to_name(id):
 def ids_to_names(ids):
     return requests.post("https://esi.evetech.net/latest/universe/names/", json=ids).json()
 
-def get_history(region_id, type_id): 
+def get_history(region_id, type_id):
     return requests.get(f"https://esi.evetech.net/latest/markets/{region_id}/history?type_id={type_id}").json()
 
-def get_wallet(id): 
+def get_wallet(id):
     return requests.get(f"/characters/{id}/wallet/").json()
 
-def get_wallet_history(id): 
+def get_wallet_history(id):
     return requests.get(f"/characters/{id}/wallet/transactions/").json()
+
+def get_char_location(id):
+    return requests.get(f"/characters/{id}/location/").json()
