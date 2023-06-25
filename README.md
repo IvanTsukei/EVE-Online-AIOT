@@ -44,7 +44,7 @@
 
 <div align="center">
   <a href="https://github.com/IvanTsukei/EVE-Online-AIOT">
-    <img src="src/frontend/widgets/Images/ExampleLook.png" alt="Example" width="673" height="698">
+    <img src="frontend/images/Example_1.png" alt="Example" width="1292" height="905">
   </a>
 </div>
 <br />
