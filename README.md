@@ -3,16 +3,16 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/IvanTsukei/AlphaProject2022">
+  <a href="https://github.com/IvanTsukei/EVE-Online-AIOT">
     <img src="src/frontend/widgets/Images/LogoPT.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">VT FIN-3114 Alpha Project</h3>
+  <h3 align="center">EVE Online All In One Tool</h3>
 
   <p align="center">
-    TKinter based application to create and analyze stock portfolios.
+    Python based program for EVE Online.
     <br />
-    Created for VT FIN-3114
+    Created for [Certh Finley](https://zkillboard.com/character/94817305/)
     <br />
   </p>
 </div>
@@ -43,19 +43,15 @@
 ## About The Project
 
 <div align="center">
-  <a href="https://github.com/IvanTsukei/AlphaProject2022">
+  <a href="https://github.com/IvanTsukei/EVE-Online-AIOT">
     <img src="src/frontend/widgets/Images/ExampleLook.png" alt="Example" width="673" height="698">
   </a>
 </div>
 <br />
 <br />
 
-I created this in about a week (totally didn't have 2 months to work on this of which I only used a week due to procrastination :sweat_smile:) and with it being one of my first larger projects in Python, I wanted to share it. I commented as much as possible and tried to break up the code into separate files, but the code is still certainly a bit messy. However, I think people who are just starting out with tkinter and pandas will find some use in looking over my work.
-
-As a reminder:
-* This is intended as a reference. If you copy this for a class, just keep in mind it can be flagged and you will likely receive a 0
-* Yes, it's not the cleanest code but I did the best I could as someone new to programming 
-* All images used were created by me in Photoshop. Please do not use them elsewhere nor copy their likeness
+This program currently only allows for you to set requirements for Buy/Sell quantities and price of items and returns a list of stations
+within your set systems that meets your criteria. The output is an excel file, named "Market_Sell_Data" by default, which saves to data/outputs.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -65,13 +61,11 @@ As a reminder:
 
 Please ensure each of the following are installed otherwise the program will not run. Use <b>pip install</b> in powershell.
 
-* [tkinter](https://docs.python.org/3/library/tkinter.html)
-* [matplotlib](https://matplotlib.org/)
 * [pandas](https://pandas.pydata.org/docs/)
 * [pandas-datareader](https://pandas-datareader.readthedocs.io/en/latest/)
 * [NumPy](https://numpy.org/)
-* [pillow](https://pillow.readthedocs.io/en/stable/reference/Image.html)
-* [yfinance](https://pypi.org/project/yfinance/)
+* [openpyxl](https://openpyxl.readthedocs.io/en/stable/)
+* [configparser](https://pypi.org/project/yfinance/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -84,15 +78,13 @@ Once all of the above libraries are installed, simply run the program from:
   ```sh
   main.py
   ```
- within the src file. 
+from the main directory. The program will take between 2-5 minutes to run. 
 
 
 <!-- CONTRIBUTING -->
 ## Contributing
 
-I'd like to preserve my first "large" project so no contributions will be accepted. 
-
-However, feel free to check out the [new version](https://github.com/IvanTsukei/Investment-Portfolio-Manager) that I'm working on using pyside6!
+Open to any contributions that improve performance, fix bugs, or add useful new functionalities to the program. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
