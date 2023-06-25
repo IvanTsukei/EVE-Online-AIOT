@@ -35,4 +35,3 @@ def sell_orders():
         df = pd.concat([df, df_temp], axis = 0)
 
     return df
-    ##df.to_excel(file_path(f'outputs/{output_name}.xlsx'), index=False)
