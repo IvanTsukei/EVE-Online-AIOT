@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/IvanTsukei/EVE-Online-AIOT">
-    <img src="src/frontend/widgets/Images/LogoPT.png" alt="Logo" width="80" height="80">
+    <img src="frontend/images/EveAIOTIcon.png" alt="Logo" width="256" height="102">
   </a>
 
   <h3 align="center">EVE Online All In One Tool</h3>
