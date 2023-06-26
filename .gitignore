@@ -1,1 +1,3 @@
 backend/controllers/test.py
+__pycache__/
+backend/controllers/__pycache__/
