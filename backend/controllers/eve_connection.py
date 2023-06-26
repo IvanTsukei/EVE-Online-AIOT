@@ -10,6 +10,10 @@ https://esi.evetech.net/ui/#/
 '''
 
 def get_orders(region_id, order_type="all", page=1, type_id=None):
+    """
+    Gets the current market orders...
+    What, expected something else??? smh
+    """
     param_string=f"order_type={order_type}&page={page}"
     if type_id:
         param_string += f"&type_id={type_id}"

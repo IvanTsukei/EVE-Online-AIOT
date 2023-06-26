@@ -2,6 +2,7 @@ from pathlib import Path
 from configparser import ConfigParser
 import json
 import pandas as pd
+import yaml
 
 def file_path(upath):
     """
@@ -17,25 +18,26 @@ def all_files():
     res = [f.__str__().rsplit('\\', 1)[-1] for f in path.glob('*.xlsx')] # f.__str__() faster than str(f). rsplit splits based on \ and gets just file name.
     return res
 
-def region_ids():
+def station_region_ids(item_list):
     """
-    Reads in the IDs and Names of all regions in Eve Online.
-    Returns a dict. of key: ID and value: Name
-    """
-    quantity_config_fpath = file_path('game_data/region_ids.xlsx')
-    df_buy_quantity = pd.read_excel(quantity_config_fpath)
-    id_name = dict(zip(df_buy_quantity['ID'], df_buy_quantity['Name']))
-    return id_name
+    Reads in the IDs and Names of all npc stations/regions in Eve Online.
 
-def station_ids():
+    Returns a dataframe with the Station and Region IDs swapped to their names.
     """
-    Reads in the IDs and Names of all npc stations in Eve Online.
-    Returns a dict. of key: ID and value: Name
-    """
-    quantity_config_fpath = file_path('game_data/npc_station_ids.xlsx')
-    df_buy_quantity = pd.read_excel(quantity_config_fpath)
-    id_name = dict(zip(df_buy_quantity['ID'], df_buy_quantity['Name']))
-    return id_name
+    
+    with open(f'{file_path("game_data/staStations.yaml")}', 'r') as file:
+        eve_stations = yaml.load(file, Loader=yaml.CLoader)
+        for dict in item_list:
+            for k,v in dict.items():
+                if k == 'Station': dict[k] = [station for station in eve_stations if station['stationID'] == v][0].get('stationName')
+
+    with open(f'{file_path("game_data/invNames.yaml")}', 'r') as file:
+        eve_locations = yaml.load(file, Loader=yaml.CLoader)
+        for dict in item_list:
+            for k,v in dict.items():
+                if k == 'Region': dict[k] = [location for location in eve_locations if location['itemID'] == v][0].get('itemName')
+
+    return pd.DataFrame.from_dict(item_list)
 
 def config_reader(section, item):
     """
