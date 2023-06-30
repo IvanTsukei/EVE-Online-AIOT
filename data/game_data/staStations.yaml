@@ -29,7 +29,7 @@
     security: 0.7944237869008254
     solarSystemID: 30002779
     stationID: 60000007
-    stationName: Ono V - Moon 9 - CBD Corporation Storage
+    stationName: Ono V - Moon 9 - CBD Corporation Storage 
     stationTypeID: 1531
     x: -640881254400.0
     y: -65580441600.0
@@ -13259,8 +13259,7 @@
     security: 0.9139081353994998
     solarSystemID: 30005038
     stationID: 60002212
-    stationName: Kor-Azor Prime IV (Eclipticum) - Moon Griklaeum - Ishukone Corporation
-        Factory
+    stationName: Kor-Azor Prime IV (Eclipticum) - Moon Griklaeum - Ishukone Corporation Factory
     stationTypeID: 1529
     x: 685150740480.0
     y: 24810086400.0
@@ -21324,8 +21323,7 @@
     security: 0.742594454459589
     solarSystemID: 30002714
     stationID: 60003556
-    stationName: Pozirblant VIII - Moon 2 - Caldari Business Tribunal Information
-        Center
+    stationName: Pozirblant VIII - Moon 2 - Caldari Business Tribunal Information Center
     stationTypeID: 3872
     x: -421638512640.0
     y: -44758917120.0
@@ -30307,8 +30305,7 @@
     security: 1.0
     solarSystemID: 30002544
     stationID: 60005053
-    stationName: Pator III (Huggar) - Moon 2 - Republic Security Services Assembly
-        Plant
+    stationName: Pator III (Huggar) - Moon 2 - Republic Security Services Assembly Plant
     stationTypeID: 2498
     x: 184503214080.0
     y: 27833917440.0
@@ -52106,8 +52103,7 @@
     security: 0.9139081353994998
     solarSystemID: 30005038
     stationID: 60008686
-    stationName: Kor-Azor Prime IV (Eclipticum) - Moon Griklaeum - Kor-Azor Family
-        Bureau
+    stationName: Kor-Azor Prime IV (Eclipticum) - Moon Griklaeum - Kor-Azor Family Bureau
     stationTypeID: 29389
     x: 685151232000.0
     y: 24810086400.0
@@ -62367,8 +62363,7 @@
     security: 0.8667830122068437
     solarSystemID: 30005304
     stationID: 60010396
-    stationName: Alentene VI - Moon 16 - Poteque Pharmaceuticals Biotech Research
-        Center
+    stationName: Alentene VI - Moon 16 - Poteque Pharmaceuticals Biotech Research Center
     stationTypeID: 3869
     x: -948776263680.0
     y: 36963901440.0
@@ -62458,8 +62453,7 @@
     security: 0.3767940376500605
     solarSystemID: 30002517
     stationID: 60010411
-    stationName: Gulmorogod VII - Moon 16 - Poteque Pharmaceuticals Biotech Research
-        Center
+    stationName: Gulmorogod VII - Moon 16 - Poteque Pharmaceuticals Biotech Research Center
     stationTypeID: 3869
     x: 612791377920.0
     y: -123640504320.0
@@ -69695,8 +69689,7 @@
     security: 1.0
     solarSystemID: 30004967
     stationID: 60011617
-    stationName: Luminaire VII (Caldari Prime) - Federal Administration Information
-        Center
+    stationName: Luminaire VII (Caldari Prime) - Federal Administration Information Center
     stationTypeID: 57
     x: 807820861440.0
     y: -13780623360.0
@@ -69732,8 +69725,7 @@
     security: 1.0
     solarSystemID: 30004967
     stationID: 60011623
-    stationName: Luminaire VII (Caldari Prime) - Moon 4 - Federal Administration Bureau
-        Offices
+    stationName: Luminaire VII (Caldari Prime) - Moon 4 - Federal Administration Bureau Offices
     stationTypeID: 56
     x: 807864852480.0
     y: -13809868800.0
@@ -70489,8 +70481,7 @@
     security: 1.0
     solarSystemID: 30004967
     stationID: 60011749
-    stationName: Luminaire VII (Caldari Prime) - Moon 6 - Federation Navy Assembly
-        Plant
+    stationName: Luminaire VII (Caldari Prime) - Moon 6 - Federation Navy Assembly Plant
     stationTypeID: 3867
     x: 808122408960.0
     y: -13813800960.0
@@ -72020,8 +72011,7 @@
     security: 1.0
     solarSystemID: 30004967
     stationID: 60012004
-    stationName: Luminaire VII (Caldari Prime) - Moon 1 - Federation Customs Testing
-        Facilities
+    stationName: Luminaire VII (Caldari Prime) - Moon 1 - Federation Customs Testing Facilities
     stationTypeID: 3869
     x: 807809064960.0
     y: -13808640000.0
@@ -72039,8 +72029,7 @@
     security: 1.0
     solarSystemID: 30004967
     stationID: 60012007
-    stationName: Luminaire VII (Caldari Prime) - Moon 5 - Federation Customs Assembly
-        Plant
+    stationName: Luminaire VII (Caldari Prime) - Moon 5 - Federation Customs Assembly Plant
     stationTypeID: 3867
     x: 808244060160.0
     y: -13815767040.0
@@ -83956,8 +83945,7 @@
     security: -0.1248034869813181
     solarSystemID: 30004623
     stationID: 60013993
-    stationName: Serpentis Prime VI - Moon 1 - Serpentis Inquest Biotech Research
-        Center
+    stationName: Serpentis Prime VI - Moon 1 - Serpentis Inquest Biotech Research Center
     stationTypeID: 54
     x: -58501816320.0
     y: -5945548800.0

@@ -4,6 +4,35 @@ import json
 import pandas as pd
 import yaml
 
+def readYaml(path):
+    f = open(path, "r")
+    ret, cur = [], {}
+    enum = enumerate(f)
+    for i, line in enum:
+        if (len(line) == 0): break
+        if (line[0] == '-'):
+            ret.append(cur)
+            cur = {}
+
+        line = line[3:]
+        spl = line.split(": ")
+        print(spl)
+        # print(next(enum))
+        # if len(f[(i + 1) % len(f)]) < 2:
+        #     print(f[(i + 1) % len(f)].rsplit())
+        # if len(f[(i + 1) % len(f)]) < 2: 
+        #     line[1] = line[1] + next(i)
+
+        cur[spl[0]] = spl[1].rstrip()
+
+        # if len(next(line)) < 2: 
+        #     line[1] = line[1] + line+1
+        print(cur)
+
+    ret.append(cur)
+    ret = ret[1:]
+    return ret
+
 def file_path(upath):
     """
     Gets the filepath to the data folder.
