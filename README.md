@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/IvanTsukei/EVE-Online-AIOT">
-    <img src="frontend/images/EveAIOTIcon.png" alt="Logo" width="744" height="152">
+    <img src="images/EveAIOTIcon.png" alt="Logo" width="744" height="152">
   </a>
 
   <h3 align="center">EVE Online All In One Tool</h3>
@@ -45,7 +45,7 @@
 
 <div align="center">
   <a href="https://github.com/IvanTsukei/EVE-Online-AIOT">
-    <img src="frontend/images/Example_1.png" alt="Example" width="1175" height="643">
+    <img src="images/Example_1.png" alt="Example" width="1175" height="643">
   </a>
 </div>
 <br />
