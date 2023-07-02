@@ -4,11 +4,24 @@ import json
 import pandas as pd
 import yaml
 
-def readYaml(path):
+def read_yaml(path):
     f = open(path, "r")
     ret, cur = [], {}
-    enum = enumerate(f)
-    for i, line in enum:
+
+    f = open(path, "r")
+    lines = []
+    for i, line in enumerate(f):
+        lines.append(line)
+
+    cleaned_lines = []
+    for i in range(1, len(lines)):
+        if (lines[i][5] == ' '):
+            cleaned_lines[len(cleaned_lines) - 1] += lines[i][8:]
+        else:
+            cleaned_lines.append(lines[i])
+
+
+    for line in cleaned_lines:
         if (len(line) == 0): break
         if (line[0] == '-'):
             ret.append(cur)
@@ -16,22 +29,15 @@ def readYaml(path):
 
         line = line[3:]
         spl = line.split(": ")
-        print(spl)
-        # print(next(enum))
-        # if len(f[(i + 1) % len(f)]) < 2:
-        #     print(f[(i + 1) % len(f)].rsplit())
-        # if len(f[(i + 1) % len(f)]) < 2: 
-        #     line[1] = line[1] + next(i)
 
         cur[spl[0]] = spl[1].rstrip()
 
-        # if len(next(line)) < 2: 
-        #     line[1] = line[1] + line+1
-        print(cur)
+        #print(cur)
 
     ret.append(cur)
     ret = ret[1:]
     return ret
+
 
 def file_path(upath):
     """
@@ -53,7 +59,7 @@ def station_region_ids(item_list):
 
     Returns a dataframe with the Station and Region IDs swapped to their names.
     """
-    
+
     with open(f'{file_path("game_data/staStations.yaml")}', 'r') as file:
         eve_stations = yaml.load(file, Loader=yaml.CLoader)
         for dict in item_list:
@@ -80,7 +86,7 @@ def config_reader(section, item):
 
 def config_reader_json(section, item):
     """
-    Reads in the config.ini file and returns relevant 
+    Reads in the config.ini file and returns relevant
     data if in json format.
     """
     config = ConfigParser()
