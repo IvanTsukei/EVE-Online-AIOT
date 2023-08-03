@@ -6,4 +6,6 @@ CORS(app)
 
 @app.route("/")
 def hello_world():
-    return {"poop": "shart"}
+    return {"poop": "shart", "dick": "cheese"}
+
+app.run()

@@ -26,5 +26,4 @@ def sell_orders():
                 temp_dict = {'Item':item_id_to_name.get(id), 'Region':places, 'Station':temp_dict.get('location_id'), 'Price':temp_dict.get('price'), 'Quantity':temp_dict.get('volume_remain')}
                 matched_items.append(temp_dict)
             except: pass
-
     return station_region_ids(matched_items)

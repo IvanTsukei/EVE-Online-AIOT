@@ -5,21 +5,26 @@ import pandas as pd
 import yaml
 
 def read_yaml(path):
-    f = open(path, "r")
-    ret, cur = [], {}
+    """
+    Reads and cleans the yaml file from CCP EVE.
+    """
 
     f = open(path, "r")
-    lines = []
+    lines, ret, cur = [], [], {}
+
+    # Cleaning #
+
     for i, line in enumerate(f):
         lines.append(line)
 
-    cleaned_lines = []
+    cleaned_lines = [] 
     for i in range(1, len(lines)):
         if (lines[i][5] == ' '):
             cleaned_lines[len(cleaned_lines) - 1] += lines[i][8:]
         else:
             cleaned_lines.append(lines[i])
 
+    # Reading #
 
     for line in cleaned_lines:
         if (len(line) == 0): break
@@ -31,8 +36,6 @@ def read_yaml(path):
         spl = line.split(": ")
 
         cur[spl[0]] = spl[1].rstrip()
-
-        #print(cur)
 
     ret.append(cur)
     ret = ret[1:]
@@ -60,17 +63,17 @@ def station_region_ids(item_list):
     Returns a dataframe with the Station and Region IDs swapped to their names.
     """
 
-    with open(f'{file_path("game_data/staStations.yaml")}', 'r') as file:
-        eve_stations = yaml.load(file, Loader=yaml.CLoader)
-        for dict in item_list:
-            for k,v in dict.items():
-                if k == 'Station': dict[k] = [station for station in eve_stations if station['stationID'] == v][0].get('stationName')
+    eve_stations = read_yaml(file_path("game_data/staStations.yaml"))
+    for dict in item_list:
+        for k,v in dict.items():
+            if k == 'Station': dict[k] = [location[' stationName'] for location in eve_stations if location[' stationID'] == str(v)]
+                #print([[(station, station_id) for station,station_id in eve_stations.items()] for eve_stations in eve_stations])
+                #dict[k] = [[(station, station_id) for station,station_id in eve_stations.items()] for eve_stations in eve_stations].get(' stationName')
 
-    with open(f'{file_path("game_data/invNames.yaml")}', 'r') as file:
-        eve_locations = yaml.load(file, Loader=yaml.CLoader)
-        for dict in item_list:
-            for k,v in dict.items():
-                if k == 'Region': dict[k] = [location for location in eve_locations if location['itemID'] == v][0].get('itemName')
+    eve_locations = read_yaml(file_path("game_data/invNames.yaml"))
+    for dict in item_list:
+        for k,v in dict.items():
+            if k == 'Region': dict[k] = [location[' itemName'] for location in eve_locations if location[' itemID'] == str(v)]
 
     return pd.DataFrame.from_dict(item_list)
 
