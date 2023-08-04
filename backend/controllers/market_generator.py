@@ -1,7 +1,8 @@
 import pandas as pd
 import numpy as np
-from eve_connection import get_orders
-from file_access import config_reader_json, sell_quantity, station_region_ids, get_region_ids
+from datetime import datetime
+from backend.controllers.eve_connection import get_orders
+from backend.controllers.file_access import config_reader_json, sell_quantity, station_region_ids, get_region_ids
 
 def sell_orders():
     """
@@ -41,4 +42,5 @@ def all_orders():
         region_items = get_orders(places)
         temp_df = pd.concat([temp_df, pd.DataFrame.from_dict(region_items)], ignore_index=True, sort=False)
     
-    return temp_df
+    temp_df['timestamp'] = datetime.today().strftime('%Y-%m-%d %H:%M')
+    return temp_df.to_dict(orient='records') # needs to be in dict form.
