@@ -1,2 +1,3 @@
 backend/controllers/test.py
+data/secret.ini
 **/__pycache__

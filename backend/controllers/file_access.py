@@ -98,6 +98,16 @@ def config_reader_json(section, item):
 
     return json.loads(config.get(section, item))
 
+def secret_reader(section, item):
+    """
+    Reads in the config.ini file and returns relevant data.
+    """
+    config = ConfigParser()
+    config_fpath = file_path('secret.ini')
+    config.read(config_fpath)
+
+    return config.get(section, item)
+
 def sell_quantity():
     """
     Reads in the min. quanity a region buyer is will to sell of a specific item.
@@ -109,3 +119,27 @@ def sell_quantity():
     quantity_list = dict(zip(df_buy_quantity['ID'], df_buy_quantity['Quantity']))
     id_name = dict(zip(df_buy_quantity['ID'], df_buy_quantity['Name']))
     return [quantity_list, id_name]
+
+def save_region_ids():
+    """
+    Reads in the yaml dump of eve locations.
+    Gets all the region IDs in the game and exports them to a text file for reading.
+    """
+    eve_locations = read_yaml(file_path("game_data/invNames.yaml"))
+    region_ids = []
+    for dict in eve_locations:
+        for k,v in dict.items():
+            if k == ' itemID' and (len(v) == 8 and str(v)[0] == '1'): region_ids.append(v)
+
+    with open(file_path('game_data/allregions.txt'),'w') as file_handler:
+        for region in region_ids: file_handler.write(f'{region}\n')
+
+def get_region_ids():
+    """
+    Reads in all the region ids for eve.
+    Returns a list of regions.
+    """
+    region_ids = []
+    with open(file_path('game_data/allregions.txt'),'r') as file_handler:
+        for region in file_handler: region_ids.append(region.rstrip('\n'))
+    return region_ids

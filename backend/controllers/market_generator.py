@@ -1,6 +1,7 @@
 import pandas as pd
-from backend.controllers.eve_connection import get_orders
-from backend.controllers.file_access import config_reader_json, sell_quantity, station_region_ids
+import numpy as np
+from eve_connection import get_orders
+from file_access import config_reader_json, sell_quantity, station_region_ids, get_region_ids
 
 def sell_orders():
     """
@@ -27,3 +28,17 @@ def sell_orders():
                 matched_items.append(temp_dict)
             except: pass
     return station_region_ids(matched_items)
+
+def all_orders():
+    """
+    Gets a list of all orders for all regions in eve.
+    Returns a pandas dataframe.
+    """
+    regions = [eval(i) for i in get_region_ids()]
+    temp_df = pd.DataFrame()
+
+    for places in regions:
+        region_items = get_orders(places)
+        temp_df = pd.concat([temp_df, pd.DataFrame.from_dict(region_items)], ignore_index=True, sort=False)
+    
+    return temp_df
